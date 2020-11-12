@@ -1,77 +1,119 @@
-.homepage{
+.homepage {
     display: flex;
     /* height: 100vh; */
 }
 
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 20px;
     justify-content: center;
     width: fit-content;
     padding: 0 10px 0 10px;
     z-index: 3;
 }
 
-.homepage_main{
+.homepage_main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-}
+    }
 
-.homepage_header{
-    display: flex;
-    flex-direction: column;
-    padding: 0 25px 0 25px;
-    height: 150px;
+.homepage_header {
+   display: grid;
+   grid-template-areas: 
+   'headertop headertop'
+   'status icons';
+    padding: 10px 25px 10px 25px;
+    height: 135px;
     z-index: 2;
+    grid-gap: 10px 10px;
+    
 }
 
-.homepage_header_top{
+.homepage_header_top {
+    grid-area: headertop;
     display: flex;
     justify-content: space-between;
-    margin: 5px 0;
+    /* border: 1px solid red; */
 }
 
-.homepage_header_user{
-    display:flex;
-}
-
-.header_bottom{
+.homepage_header_user {
     display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
+    gap: 15px;
+    text-align: center;
 }
-.header_bottom h3 {
-    font-size: 17px;
+
+.header_usericon {
+    width: 20px;
+    height: 20px;
 }
-.header_bottom h4 {
+
+.homepage_header_user h3 {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.header_status {
+    /* border: 1px solid green; */
+    padding: 10px 0;
+    grid-area: status;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.header_status h3 {
+    font-size: 15px;
+}
+
+.header_status h4 {
     font-size: 13px;
+    font-weight: normal;
 }
+
 .header_icons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 60px;
+    grid-area: icons;
+    /* border: 1px solid green; */
+    padding-bottom: 10px;
 }
 
 .header_icons > div {
     align-items: center;
     display: flex;
-    text-align: center;
-    margin: 0 25px;
+    text-align: center; 
 }
 
-.homepage_body{
+.lighticon,
+.nighticon {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0 4px;
+}
+
+.switchicon {
+    width: 45px;
+    height: 27px;
+    margin: 0;
+}
+
+.homepage_body {
     display: flex;
     justify-content: space-between;
     padding: 45px 25px;
     height: 100%;
-    gap:20px;
+    gap: 20px;
     z-index: 1;
 }
 
-.homepage_body_firstbox{
+.homepage_body_firstbox {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -79,14 +121,14 @@
     width: 45%;
 }
 
-.homepage_body_firstbox_first{
+.homepage_body_firstbox_first {
     display: flex;
     gap: 20px;
     justify-content: space-between;
     height: 90px;
 }
 
-.totalschooldays{
+.totalschooldays {
     padding: 15px;
     width: 50%;
 }
@@ -102,7 +144,7 @@
 }
 
 .homepage_body_secondbox {
-    display:flex;
+    display: flex;
     width: 55%;
     height: 500px;
     gap: 20px;
@@ -113,28 +155,29 @@
     padding: 15px;
 }
 
-.noticeboard_notices{
+.noticeboard_notices {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 10px;
-    /* justify-content: space-evenly; */
-    align-items: center;
     height: 88%;
 }
 
-.noticeboard_notice{
+.noticeboard_notice {
     padding: 10px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+
 }
 
-.noticeboard_notice h4{
-    font-size: 15px;
-}
-
-.noticeboard_notice span{
+.noticeboard_notice h4 {
     font-size: 13px;
+    font-weight: normal;
+}
+
+.noticeboard_notice span {
+    font-size: 12px;
+    font-weight: 50;
 }
 
 .recentactivities {
@@ -142,7 +185,7 @@
     padding: 15px 15px 15px 25px;
 }
 
-.recentactivities ul{
+.recentactivities ul {
     margin-top: 20px;
 }
 
@@ -155,91 +198,163 @@
 .totalpresentdays,
 .homepage_body_firstbox_second,
 .noticeboard,
-.recentactivities{
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+.recentactivities {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .totalschooldays h3,
 .totalpresentdays h3,
 .noticeboard h3,
-.recentactivities h3{
+.recentactivities h3 {
     font-size: 15px;
     font-weight: 200px;
 }
 
 .totalpresentdays span,
-.totalschooldays span{
+.totalschooldays span {
     font-size: 20px;
     font-weight: bold;
 }
-
-
+ 
 @media only screen and (max-width:767px) {
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+    }
 
-   .homepage_body{
-       flex-direction: column;
-   }
+    .homepage_main {
+        padding-left: 45px;
+    }
 
-   .homepage_header_top{
-       flex-direction: column;
-       position: relative;
-   }
+    .homepage_body {
+        flex-direction: column;
+    }
 
-   .homepage_header_top h2{
-       font-size: 20px;
-       margin-bottom: 5px;
-   }
+    .homepage_header{
+        grid-template-areas: 
+        'headertop icons'
+         'status icons';
+        grid-gap: 10px 20px;
+    }
 
-   .homepage_header_user{
-       font-size: 12px;
-       font-weight: normal;
-   }
-   .header_usericon{
+    .homepage_header_top h2 {
+        font-size: 20px;
+    }
+    .homepage_header_top{
+        display: flex;
+        flex-direction: column;
+    }
+    .homepage_header_user {
+        font-size: 12px;
+        font-weight: normal;
+        display: flex;
+        flex-flow: row-reverse;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 7px;
+        /* border: 1px solid pink; */
+    }
+
+    .header_usericon {
         size: 12px;
         width: 20px;
         height: 20px;
         margin-right: 5px;
-   }
-   .header_icons{
-       display: flex;
-       flex-direction: column;
-       justify-content: space-between;
-       height: 100px; 
-       position: absolute;
-       top:10px;
-       right: 10px;
-       align-items: flex-end;
-   }
+        /* border: 1px solid red; */
+    }
 
-   .lighticon{
-       width : 20px;
-       height: 20px;
-       padding: 0;
-       margin:0;
-   }
+    .header_icons {
+        /* border: 1px solid green; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-   .nighticon{
-       width : 20px;
-       height: 20px;
-       padding: 0;
-       margin:0;
-   }
+    .lighticon {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+    }
 
-   .homepage_body_firstbox{
-       width: 100%;
-   }
+    .nighticon {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+    }
 
-   .homepage_body_secondbox{
-       flex-direction: column;
-       width: 100%;
-   }
+    .homepage_body_firstbox {
+        width: 100%;
+    }
 
-   .noticeboard{
-       width: 100%;
-   }
+    .homepage_body_secondbox {
+        flex-direction: column;
+        width: 100%;
+    }
 
-   .recentactivities{
-       width: 100%;
-   }
+    .noticeboard {
+        width: 100%;
+        /* overflow: scroll; */
+    }
+
+    .recentactivities {
+        width: 100%;
+    }
 }
+
+@media only screen and (max-width:600px) {
+    .homepage_header_user{
+        display: flex;
+        gap : 0px;
+    }
+    .homepage_body_secondbox {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:421px) {
+   
+    .homepage_header{
+        grid-column-gap: 5px;
+        padding-right: 7px;
+    }
+    .homepage_header,
+    .homepage_body{
+        padding-right: 10px;
+        padding-left: 10px;
+    
+    }
+    .homepage_header_top div h2 {
+        font-size: 16px;
+    }
+    .homepage_header_user {
+        gap: 5px;
+        padding-left: 0;
+        /* align-items: flex-start; */
+        /* justify-content: space-around; */
+        margin-top: 5px;
+
+    }
+    .homepage_header_user h3{
+        padding: 0;
+        margin: 0;
+        display: inline;
+        font-size: 14px;
+    }
+
+    .lighticon:root {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nighticon.light {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        margin: 0;
+    }
+} 

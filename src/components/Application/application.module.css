@@ -1,0 +1,60 @@
+.applicationbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: red; */
+    /* border: 1px solid red;  */
+    padding : 90px 0;
+    height: 81.4vh;
+}
+
+.main{
+    /* border: 1px solid rgb(33, 86, 165); */
+    width: 63%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label{
+    font-weight: 20px;
+}
+
+.subtitle_input,
+.description_input{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.subtitle_input:focus,
+.description_input:focus{
+    outline-style: none;
+}
+
+.description_input{
+    height: 300px;
+    resize: none;
+
+}
+
+.btngroup{
+    display: flex;
+    gap:10px;
+}
+
+.btn{
+    width: 100px;
+    height: 36px;
+    /* font-size: 10px; */
+    cursor: pointer;
+    border: none;
+}
+
+@media only screen and (max-width: 750px) {
+    .main{
+        width: 90%;
+    }
+}

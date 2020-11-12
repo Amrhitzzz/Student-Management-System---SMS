@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Route, Switch, BrowserRouter as Router, Redirect } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Login from "./components/login/Login";
 import Home from "./components/home/Home";
 import Themecontext  from "./context/Themecontext";
 import "./index.css";
+import Application from "./components/Application/Application";
 
 export default function App() {
   const [loginStatus, setloginStatus] = useState(false);
@@ -32,6 +33,7 @@ export default function App() {
   const logout = () => {
     setloginStatus(false);
     localStorage.removeItem("loginStatus");
+    localStorage.removeItem("token");
   };
 
   return (
@@ -39,11 +41,14 @@ export default function App() {
       <Router>
         <Switch>
          <Route exact path="/"
-          render={() => loginStatus && isTokenExpire() ? <Redirect to="/home" /> : <Login login={login} />
+          render={() => loginStatus && isTokenExpire() ? <Home/> : <Login login={login} />
           } />
         
         <Route exact path="/home"
-          render={() => loginStatus && isTokenExpire() ? <Home logout={logout} /> : <Redirect to="/" />} />
+          render={() => loginStatus && isTokenExpire() ? <Home logout={logout} /> : <Login login={login} />} />
+
+        <Route exact path="/home/app" render={() => isTokenExpire() ? <Application logout={logout}/> : <Login login={login} /> } />
+
         </Switch>
       </Router>
    </Themecontext> 
