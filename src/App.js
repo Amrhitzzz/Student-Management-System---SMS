@@ -5,6 +5,8 @@ import Home from "./components/home/Home";
 import Themecontext  from "./context/Themecontext";
 import "./index.css";
 import Application from "./components/Application/Application";
+import Result from "./components/Results/Result";
+import Teacher from "./components/Teachers/Teacher";
 
 export default function App() {
   const [loginStatus, setloginStatus] = useState(false);
@@ -48,6 +50,10 @@ export default function App() {
           render={() => loginStatus && isTokenExpire() ? <Home logout={logout} /> : <Login login={login} />} />
 
         <Route exact path="/home/app" render={() => isTokenExpire() ? <Application logout={logout}/> : <Login login={login} /> } />
+        
+        <Route exact path = "/home/result" render = { () => isTokenExpire() ? <Result /> : <Login login ={login}/>} />
+
+        <Route exact path = "/home/teacher" render = { () => isTokenExpire() ? <Teacher /> : <Login login ={login}/>} />
 
         </Switch>
       </Router>

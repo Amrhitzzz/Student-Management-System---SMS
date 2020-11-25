@@ -19,13 +19,13 @@ const Sidebar = () => {
           <Link to="/home/app" style={theme[10]}>
           <MarkunreadIcon />
           </Link>
-          <Link to="/" style={theme[10]}>
+          <Link to="/home/result" style={theme[10]}>
           <AssignmentIcon/>
           </Link>
           <Link to="/" style={theme[10]}>
           <FormatListNumberedIcon />
           </Link>
-          <Link to="/" style={theme[10]}>
+          <Link to="/home/teacher" style={theme[10]}>
           <SupervisorAccountIcon />
           </Link>
           <Link to="/" style={theme[10]}>
