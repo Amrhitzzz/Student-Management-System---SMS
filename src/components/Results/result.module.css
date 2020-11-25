@@ -1,0 +1,44 @@
+.resultbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 35px;
+    border: 1px solid yellow;
+    gap: 30px;
+}
+
+.resultoption{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    border: 1px solid red;
+    padding: 5px 0;
+}
+
+.resultsem{
+    width: 220px;
+    border: 1px solid blue;
+}
+.resultsem h2{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.formControl{
+    width: 100%;
+}
+.resultsearchanddownload{
+    display: flex;
+    gap: 30px;
+    border:1px solid green;
+    width: 40%;
+}
+
+.resultbtn{
+    width: 100%;
+}
+.marksheets{
+    width: 100%;
+    height: 425px;
+    border: 1px solid pink;
+}
